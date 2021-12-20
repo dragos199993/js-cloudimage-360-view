@@ -8,7 +8,9 @@ function init() {
   const viewers = [];
   const view360Array = document.querySelectorAll('.cloudimage-360:not(.initialized)');
 
-  [].slice.call(view360Array).forEach(container => { viewers.push(new CI360Viewer(container)); });
+  [].slice.call(view360Array).forEach(container => {
+    viewers.push(new CI360Viewer(container));
+  });
 
   window.CI360._viewers = viewers;
 }
@@ -16,7 +18,9 @@ function init() {
 function destroy() {
   if (isNoViewers()) return;
 
-  window.CI360._viewers.forEach(viewer => { viewer.destroy(); });
+  window.CI360._viewers.forEach(viewer => {
+    viewer.destroy();
+  });
 
   window.CI360._viewers = [];
 }
@@ -36,8 +40,9 @@ function isNoViewers() {
 window.CI360 = window.CI360 || {};
 window.CI360.init = init;
 window.CI360.destroy = destroy;
+window.CI360.imagesLoaded = false;
 window.CI360.getActiveIndexByID = getActiveIndexByID;
-window.test = 'test';
+
 if (!window.CI360.notInitOnLoad) {
   init();
 }

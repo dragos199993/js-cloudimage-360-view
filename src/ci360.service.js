@@ -757,6 +757,7 @@ class CI360Viewer {
 
   onAllImagesLoaded() {
     this.imagesLoaded = true;
+    window.CI360.imagesLoaded = true;
 
     this.container.style.cursor = "grab";
     if (this.disableDrag) this.container.style.cursor = "default";
